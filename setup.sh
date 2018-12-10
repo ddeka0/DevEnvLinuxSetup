@@ -28,10 +28,13 @@ sudo mv PowerlineSymbols.otf /usr/share/fonts/
 sudo fc-cache -vf /usr/share/fonts/
 sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
 
+
 #Java8 install commands
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install -y oracle-java8-installer
 
 #colour picker tool install command
+# you can go to this website : http://mayccoll.github.io/Gogh/#0 and pick your fav color 
+# for terminator background
 sudo apt-get install -y gpick
