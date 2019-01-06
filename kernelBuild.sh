@@ -32,3 +32,8 @@ sudo make -j 4 && sudo make modules_install -j 4 && sudo make install -j 4
 update-initramfs -c -k 4.20.0
 update-grub  
 sudo reboot
+
+nano /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash noresume"
+sudo update-grub
+sudo reboot
