@@ -1,4 +1,20 @@
-#!/bin/bash
+# do not run this directly -- read propery
+sudo apt-get install bridge-utils
+
+#create a bridge in your system : for example name of your bridge br0
+
+#after that,
+
+sudo apt-get install qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker
+sudo systemctl enable libvirtd
+sudo systemctl start libvirtd
+sudo apt-get install virt-manager
+sudo virt-manager # create a new virtual machine Assuming you have already downloaded one ubuntu image
+
+#Once you are inside the ubuntu VM (guest) for the first time : not upgrade anything : no package manager stuff (popup etc)
+
+#Just install the following as listed
+
 sudo apt-get update
 sudo apt-get -y install bison
 sudo apt-get -y install flex
@@ -12,7 +28,7 @@ tar -xvf linux-4.20.tar.xz
 cd linux-4.20
 cp /boot/config-$(uname -r) .config
 make menuconfig
-#sudo make -j 4 && sudo make modules_install -j 4 && sudo make install -j 4
-#update-initramfs -c -k 4.7.1   
-#update-grub  
-#sudo reboot
+sudo make -j 4 && sudo make modules_install -j 4 && sudo make install -j 4
+update-initramfs -c -k 4.20.0
+update-grub  
+sudo reboot
