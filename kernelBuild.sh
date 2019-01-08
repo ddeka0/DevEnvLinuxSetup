@@ -1,4 +1,5 @@
 # do not run this directly -- read propery
+# ubuntu 18.04.1 and kernel 4.20
 sudo apt-get install bridge-utils
 
 #create a bridge in your system : for example name of your bridge br0
