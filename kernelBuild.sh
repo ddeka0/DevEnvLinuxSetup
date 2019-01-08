@@ -20,7 +20,7 @@ sudo apt-get install virt-manager
 #now you have kvm and qemu installted : you can proceed to install a new VM. 
 # run sudo virt-manager and create a new VM (ubuntu desktop or server)
 #allocate more ram like 3 or 4gb and 2/4 cores(it will make kernel compile faster later). 
-# (you reduce these allocation later)
+# (you may reduce these allocation later)
 #use br0 bridge as your network connection point
 
 #Now you have a ubuntu machine available insie kvm-qemu setup
