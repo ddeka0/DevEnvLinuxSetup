@@ -3,7 +3,7 @@
 # run the follwoing commands in your host system
 sudo apt-get install bridge-utils
 
-#create a bridge in your system : for example name of your bridge br (check online resouce for static as well as dhcp)
+#create a bridge in your system : for example, name of your bridge br0 (check online resouce for static as well as dhcp)
 #(no need of disbling network-manager etc : simply change the follwing file)
 #create bridge using the file : /etc/network/interfaces
 #just after the change : reboot the system
