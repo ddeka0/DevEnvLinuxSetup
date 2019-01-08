@@ -1,4 +1,4 @@
-# do not run this directly -- read propery
+# do not run this directly -- read properly
 # ubuntu 18.04.1 and kernel 4.20
 # run the follwoing commands in your host system
 sudo apt-get install bridge-utils
