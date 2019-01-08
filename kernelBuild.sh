@@ -9,7 +9,7 @@ sudo apt-get install bridge-utils
 #just after the change : reboot the system
 #the brdige should work
 
-# till now you have a bridge: which your new vm can use it to get internet connection and get a IITB network IP (not NAT)
+# till now you have a bridge: which your new vm can use it to get internet connection and get a IITB network IP
 
 # run the follwoing command in your host system to install kvm qemu etc for virtualization setup.
 sudo apt-get install qemu-kvm libvirt-bin virtinst bridge-utils cpu-checker
