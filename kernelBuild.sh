@@ -17,18 +17,67 @@ sudo systemctl enable libvirtd
 sudo systemctl start libvirtd
 sudo apt-get install virt-manager
 
-#now you have kvm and qemu installted : you can proceed to install a new VM. 
+# now you have kvm and qemu installted : you can proceed to install a new VM. 
 # run sudo virt-manager and create a new VM (ubuntu desktop or server)
-#allocate more ram like 3 or 4gb and 2/4 cores(it will make kernel compile faster later). 
-# (you may reduce these allocation later)
-#use br0 bridge as your network connection point
+# allocate more ram like 3 or 4gb and 2/4 cores(it will make kernel compile faster later). 
+# (you may reduce these allocation later using virt-manager)
+# use br0 bridge as your network connection point
 
-#Now you have a ubuntu machine available insie kvm-qemu setup
-#============================================================================================
+# Now you have a ubuntu machine available insie kvm-qemu setup
+# ============================================================================================
 # run the follwoing commands in your guest system
-# start the ubuntu vm and log in.
+# start the ubuntu vm and log in to your new VM.
 # you should get an IP address by now.
+
 # connect to iitb internet using your ldap (you might have to use some tools,wget ot culr or browser(in desktop ubuntu only))
+
+# Script you might want to use (if you have install ubuntu server) : (using curl)
+
+
+echo ""
+echo "------------------------[IIT BOMBAY LDAP LOGIN]-------------------------------"
+printf "Enter LDAP User Name:"
+read uname
+printf "Enter LDAP Password:"
+read -s passwd
+page=`curl -# --data "uname=$uname&passwd=$passwd"   https://internet.iitb.ac.in/index.php`
+status=`echo $page|grep -c 'logout' `
+if [ "$status" -eq "1" ] 
+then
+	echo "Status: Connection of SUCCESSFULL!!!"
+else
+	echo "Status: Check internet, you may be already connected or please try again."
+fi
+echo "Thank You, for using :)"
+echo "-------------------------------------------------------------------------------
+
+
+# Script you might want to use (if you have install ubuntu server) : (using wget)
+
+echo ""
+echo "------------------------[IIT BOMBAY LDAP LOGIN]-------------------------------"
+printf "Enter LDAP User Name:"
+read uname
+printf "Enter LDAP Password:"
+read -s passwd
+logfile=' /tmp/wget_internertStatus.txt'
+outputfile='/tmp/wget_internertStatus_output.html'
+wget https://internet.iitb.ac.in/index.php --post-data="uname=$uname&passwd=$passwd" -o $logfile -O $outputfile
+status=`cat $outputfile|grep -c 'logout' `
+rm $logfile
+rm $outputfile
+echo ''
+if [ "$status" -eq "1" ] 
+then
+	echo "Status: Connection of SUCCESSFULL!!!"
+else
+	echo "Status: Check internet, you may be already connected or please try again."
+fi
+echo "Thank You, for using :)"
+echo "-------------------------------------------------------------------------------"
+
+#depending on which tools is preinstalled in your system, you can choose to use one of the scipt.
+
 
 # Now Just install the following as listed
 
