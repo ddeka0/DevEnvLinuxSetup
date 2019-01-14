@@ -10,34 +10,30 @@ steps for compiling the kernel--------------------------
 # do not run this script automatially
 =========================================================
 # save this command as run_qemu.sh
-sudo qemu-system-x86_64									\
-	-s 													\
-	-S 													\
-	-smp 2												\
-	-m 3000M 											\
-	# -show-cursor										\
-	# qemu-system-arm -M overo -m 256 -sd ./test.img 	\
-	# -clock unix -serial stdio -usb -device usb-host,	\
-	# hostbus=2,hostaddr=1								\
+sudo qemu-system-x86_64						\
+	-s 							\
+	-S 							\
+	-smp 2							\
+	-m 3000M 						\								\
 	-hda /var/lib/libvirt/images/<disk_file_name> 		\
-	# check the existing vm disk file name in host 		\
-	# that you have installed using virt-manager		\
-	# for example ubuntu18.04.qcow2						\
-	-enable-kvm											\
-	-kernel arch/x86/boot/bzImage 						\
+	 # check the existing vm disk file name in host 	\
+	 # that you have installed using virt-manager		\
+	 # for example ubuntu18.04.qcow2			\
+	-enable-kvm						\
+	-kernel arch/x86/boot/bzImage 				\
 	-append "root=/dev/sda1 console=tty0 nokaslr"
 =========================================================
 
 =========================================================
 # save this command as run_gdb.sh
-sudo gdb ./vmlinux  									\
-			-ex "target remote localhost:1234"       	\
-            -ex "break x86_64_start_kernel"				\
-           	-ex "continue"								\
-          	# press ctrl+c after VM boots up			\
-           	-ex "disconnect"							\
-           	-ex "set architecture i386:x86-64:intel"	\
-           	-ex "target remote localhost:1234"
+sudo gdb ./vmlinux  					\
+	-ex "target remote localhost:1234"      	\
+	-ex "break x86_64_start_kernel"			\
+        -ex "continue"					\
+        # press ctrl+c after VM boots up		\
+        -ex "disconnect"				\
+        -ex "set architecture i386:x86-64:intel"	\
+        -ex "target remote localhost:1234"
 =========================================================
 
 # copy these sh files inside linux kernel build folder in the host
