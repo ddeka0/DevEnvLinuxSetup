@@ -1,3 +1,5 @@
+# instruction for kernel debug uing qemu
+# system ubuntu 18.04 and kernel version 4.20
 # Compile the same version of the kernel (in the host)
 # because our host and guest architecture are same.
 # if guest architecture is different, compile the kernel
