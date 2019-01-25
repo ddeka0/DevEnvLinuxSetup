@@ -24,6 +24,8 @@ sudo qemu-system-x86_64						\
 	-enable-kvm						\
 	-kernel arch/x86/boot/bzImage 				\
 	-append "root=/dev/sda1 console=tty0 nokaslr"
+	# check the root file system "/dev/sda1" fir correctness by going into the guest before running this script.
+	# use sudo fdisk -l command to filesystem path.
 =========================================================
 
 =========================================================
