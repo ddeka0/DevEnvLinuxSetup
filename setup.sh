@@ -38,3 +38,8 @@ sudo apt-get install -y oracle-java8-installer
 # you can go to this website : http://mayccoll.github.io/Gogh/#0 and pick your fav color 
 # for terminator background
 #sudo apt-get install -y gpick
+
+# jenkins install
+# https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-18-04
+
+
